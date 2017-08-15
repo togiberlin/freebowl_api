@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    errors:
+      models:
+        frame:
+          attributes:
+            ball_three_pins:
+              not_yet_allowed: isn't allowed for frames 1 to 9!
+                In order to get a 3rd throw, score either a strike or a spare in the 10th frame.
+            frame_number:
+              game_over: can't be higher than 10, game is over!
+            partial_score:
+              impossible_values: can't be higher than 10 for frames 1 to 9!
