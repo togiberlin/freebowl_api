@@ -5,7 +5,7 @@ RSpec.describe 'Games API', type: :request do
   let(:id) { games.first.id }
 
   # Index action
-  describe 'GET /games' do
+  describe 'GET /api/v1/games' do
     before { get api_v1_games_path }
 
     it 'returns games' do
@@ -19,7 +19,7 @@ RSpec.describe 'Games API', type: :request do
   end
 
   # Create action
-  describe 'POST /games' do
+  describe 'POST /api/v1/games' do
     let(:valid_attributes) { { created_by: 'Bowling Shop Owner' } }
 
     context 'when the request is valid' do
@@ -49,7 +49,7 @@ RSpec.describe 'Games API', type: :request do
   end
 
   # Show action
-  describe 'GET /games/:id' do
+  describe 'GET /api/v1/games/:id' do
     before { get api_v1_game_path(id) }
 
     context 'when record exists' do
@@ -77,7 +77,7 @@ RSpec.describe 'Games API', type: :request do
   end
 
   # Update action
-  describe 'PUT /games/:id' do
+  describe 'PUT /api/v1/games/:id' do
     let(:valid_attributes) { { created_by: 'The Second Bowling Admin' } }
 
     context 'when the record exists' do
@@ -94,7 +94,7 @@ RSpec.describe 'Games API', type: :request do
   end
 
   # Destroy action
-  describe 'DELETE /games/:id' do
+  describe 'DELETE /api/v1/games/:id' do
     before { delete api_v1_game_path(id) }
 
     it 'returns status code 204' do

@@ -7,7 +7,7 @@ RSpec.describe 'Players API', type: :request do
   let(:id) { players.first.id }
 
   # Index action
-  describe 'GET /games/:game_id/players' do
+  describe 'GET /api/v1/games/:game_id/players' do
     before { get api_v1_game_players_path(game_id) }
 
     context 'when a game exists' do
@@ -34,7 +34,7 @@ RSpec.describe 'Players API', type: :request do
   end
 
   # Create action
-  describe 'POST /games/:game_id/players' do
+  describe 'POST /api/v1/games/:game_id/players' do
     let(:valid_attributes) { { name: 'Peter Griffin'} }
 
     context 'when request attributes are valid' do
@@ -59,7 +59,7 @@ RSpec.describe 'Players API', type: :request do
   end
 
   # Show action
-  describe 'GET /games/:game_id/players/:id' do
+  describe 'GET /api/v1/games/:game_id/players/:id' do
     before { get api_v1_game_player_path(game_id, id) }
 
     context 'when a player exists' do
@@ -86,7 +86,7 @@ RSpec.describe 'Players API', type: :request do
   end
 
   # Update action
-  describe 'PUT /games/:game_id/players/:id' do
+  describe 'PUT /api/v1/games/:game_id/players/:id' do
     let(:valid_attributes) { { name: 'Lois Griffin' } }
 
     before { put api_v1_game_player_path(game_id, id), params: valid_attributes }
@@ -116,7 +116,7 @@ RSpec.describe 'Players API', type: :request do
   end
 
   # Destroy action
-  describe 'DELETE /games/:game_id/players/:id' do
+  describe 'DELETE /api/v1/games/:game_id/players/:id' do
     before { delete api_v1_game_player_path(game_id, id) }
 
     it 'returns status code 204' do

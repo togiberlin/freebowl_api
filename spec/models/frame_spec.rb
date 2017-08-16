@@ -2,22 +2,27 @@ require 'rails_helper'
 
 RSpec.describe Frame do
   subject { create(:frame) }
+
   # Association test
-  it { should belong_to(:player) }
+  it { is_expected.to belong_to(:player) }
+
+  # Callback tests
+  it { is_expected.to callback(:set_frame_number).before(:validation).on(:create) }
+  it { is_expected.to callback(:update_score).after(:save) }
 
   # Validation tests
-  it { should validate_numericality_of(:ball_one_pins).only_integer }
-  it { should validate_numericality_of(:ball_two_pins).only_integer }
-  it { should validate_numericality_of(:ball_three_pins).only_integer }
-  it { should validate_numericality_of(:score).only_integer }
-  it { should validate_numericality_of(:ball_one_pins).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:ball_two_pins).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:ball_three_pins).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:ball_one_pins).is_less_than_or_equal_to(10) }
-  it { should validate_numericality_of(:ball_two_pins).is_less_than_or_equal_to(10) }
-  it { should validate_numericality_of(:ball_three_pins).is_less_than_or_equal_to(10) }
-  it { should validate_numericality_of(:score).is_greater_than_or_equal_to(0) }
-  it { should validate_numericality_of(:score).is_less_than_or_equal_to(300) }
+  it { is_expected.to validate_numericality_of(:ball_one_pins).only_integer }
+  it { is_expected.to validate_numericality_of(:ball_two_pins).only_integer }
+  it { is_expected.to validate_numericality_of(:ball_three_pins).only_integer }
+  it { is_expected.to validate_numericality_of(:score).only_integer }
+  it { is_expected.to validate_numericality_of(:ball_one_pins).is_greater_than_or_equal_to(0) }
+  it { is_expected.to validate_numericality_of(:ball_two_pins).is_greater_than_or_equal_to(0) }
+  it { is_expected.to validate_numericality_of(:ball_three_pins).is_greater_than_or_equal_to(0) }
+  it { is_expected.to validate_numericality_of(:ball_one_pins).is_less_than_or_equal_to(10) }
+  it { is_expected.to validate_numericality_of(:ball_two_pins).is_less_than_or_equal_to(10) }
+  it { is_expected.to validate_numericality_of(:ball_three_pins).is_less_than_or_equal_to(10) }
+  it { is_expected.to validate_numericality_of(:score).is_greater_than_or_equal_to(0) }
+  it { is_expected.to validate_numericality_of(:score).is_less_than_or_equal_to(300) }
 
   # Custom validation tests
   describe 'frame_cannot_be_added_when_game_finished' do
@@ -87,9 +92,6 @@ RSpec.describe Frame do
       end
     end
   end
-
-  # Callback test
-  it { should callback(:update_score).after(:save) }
 
   # Scoping test
   describe 'default_scope' do

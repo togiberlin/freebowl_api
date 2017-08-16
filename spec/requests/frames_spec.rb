@@ -9,7 +9,7 @@ RSpec.describe 'Frames API', type: :request do
   let(:id) { 1 } # is frame id
 
   # Create action
-  describe 'POST /games/:game_id/players/:player_id/frames' do
+  describe 'POST /api/v1/games/:game_id/players/:player_id/frames' do
     let(:valid_attributes) do
       {
         ball_one_pins: 3,
@@ -36,7 +36,7 @@ RSpec.describe 'Frames API', type: :request do
   end
 
   # Update action
-  describe 'PUT /games/:game_id/players/:player_id/frames/:counter' do
+  describe 'PUT /api/v1/games/:game_id/players/:player_id/frames/:counter' do
     let(:valid_attributes) { { ball_two_pins: 1 } }
     let(:frame) { create(:frame, frame_number: 2, player: players.first, ball_two_pins: 2) }
 
