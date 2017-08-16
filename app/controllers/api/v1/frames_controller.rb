@@ -1,10 +1,10 @@
 class API::V1::FramesController < ApplicationController
-  # POST /games/:game_id/players/:player_id/frames
+  # POST /api/v1/games/:game_id/players/:player_id/frames
   def create
     json_response(player.frames.create!(frame_params).reload, :created)
   end
 
-  # PUT /games/:game_id/players/:player_id/frames/:id
+  # PUT /api/v1/games/:game_id/players/:player_id/frames/:id
   def update
     frame.update!(frame_params)
     json_response(frame.reload)
