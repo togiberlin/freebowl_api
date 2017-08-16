@@ -31,6 +31,20 @@ FactoryGirl.define do
       frame_number 10
     end
 
+    trait :last_frame_with_strike do
+      frame_number 10
+      ball_one_pins 10
+      ball_two_pins { Faker::Number.between(0,10) }
+      ball_three_pins { Faker::Number.between(0,10) }
+    end
+
+    trait :last_frame_with_spare do
+      frame_number 10
+      ball_one_pins 2
+      ball_two_pins 8
+      ball_three_pins { Faker::Number.between(0,10) }
+    end
+
     trait :not_last_frame do
       frame_number { Faker::Number.between(1,9) }
     end
