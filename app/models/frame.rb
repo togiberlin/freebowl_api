@@ -34,6 +34,14 @@ class Frame < ApplicationRecord
 
   private
 
+    def update_score
+      ScoreCalculator.new(player.frames).call!
+    end
+
+    def set_frame_number
+      self.frame_number = player.frames.count + 1 if frame_number.blank?
+    end
+
     def frame_cannot_be_added_when_game_finished
       errors.add(:frame_number, :game_over) if frame_number >= 11
     end
@@ -44,13 +52,5 @@ class Frame < ApplicationRecord
 
     def third_throw_not_yet_allowed
       errors.add(:ball_three_pins, :not_yet_allowed) if frame_number <= 9 && ball_three_pins != 0
-    end
-
-    def update_score
-      ScoreCalculator.new(player.frames).call!
-    end
-
-    def set_frame_number
-      self.frame_number = player.frames.count + 1 if frame_number.blank?
     end
 end

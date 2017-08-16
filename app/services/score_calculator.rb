@@ -45,6 +45,7 @@ class ScoreCalculator
   end
 
   private
+
     # Helper method, which jumps to a specific array index position
     def frame_at(index)
       return Frame.new(frame_number: 0) if index < 0 || index >= frames.size

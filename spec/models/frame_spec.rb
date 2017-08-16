@@ -21,20 +21,20 @@ RSpec.describe Frame do
 
   # Custom validation tests
   describe 'frame_cannot_be_added_when_game_finished' do
-    let(:eleventh_frame) { FactoryGirl.build :frame, :invalid_eleventh_frame }
+    let(:frame) { FactoryGirl.build :frame, :invalid_eleventh_frame }
     let(:error_message) { I18n.t('activerecord.errors.models.frame.attributes.frame_number.game_over') }
 
     it 'makes sure that the 11th frame cannot be created' do
-      expect(eleventh_frame).to be_invalid
-      expect(eleventh_frame.errors[:frame_number]).to include(error_message)
+      expect(frame).to be_invalid
+      expect(frame.errors[:frame_number]).to include(error_message)
     end
 
     context 'when the current frame is not the last frame' do
-      let(:valid_frame) { FactoryGirl.build :frame, :not_last_frame }
+      let(:frame) { FactoryGirl.build :frame, :not_last_frame }
 
       it 'allows creating a new frame' do
-        expect(valid_frame).to be_valid
-        expect(valid_frame.errors[:frame_number]).to be_empty
+        expect(frame).to be_valid
+        expect(frame.errors[:frame_number]).to be_empty
       end
     end
   end
