@@ -4,7 +4,25 @@ This exercise is a good introduction and refresher to Rails API mode.
 
 🎨📖 **API endpoint documentation:** [https://documenter.getpostman.com/view/2536067/freebowl_api/6n33Et5](https://documenter.getpostman.com/view/2536067/freebowl_api/6n33Et5)
 
-## Task
+## Project Justification
+Why this project? And what is an API, explained in simple and plain English?
+
+API stands for [application programming interface](https://en.wikipedia.org/wiki/Web_API). It allows any type of app (from e.g. smartphones, tablets, laptops, desktops etc.) to connect to a database via the internet, and do the following stuff:
+
+- retrieve data (e.g. text, images, videos etc.)
+- store data
+- manipulate data (e.g. updating text, status posts)
+- delete data (e.g. deleting status posts)
+
+Besides these four basic cases, the API can also do more complex stuff, like e.g. video processing, image transformation and much, much more. In this project, we calculate the scores of a bowling game. We submit the number of knocked down pins, and the API will provide us with accurate score numbers.
+
+The cool thing about APIs is, that it allows you to create an ecosystem, where other 3rd party apps can dock on and create value. For example, Facebook APIs allow app developers to implement a "login with Facebook" feature, which keeps user login (and password!) hassle minimal. Thanks to PayPal APIs, users are able to conveniently make international payments with a few clicks. Compare that to the traditional MoneyGram or Western Union approach.
+
+> APIs are like doors between walled gardens.
+
+In short: APIs are interesting, fun, extremely relevant and the hidden, main driving force (or _glue_) behind the web 2.0.
+
+## Project Task
 Build a Ruby on Rails API that takes score of a bowling game.
 You have the freedom to define the architecture of the API and how its endpoints will look.
 
@@ -40,16 +58,16 @@ For background information, please see [Wikipedia](http://en.wikipedia.org/wiki/
 * Make sure you have a Ruby version manager, like e.g. [rbenv](https://github.com/rbenv/rbenv). Alternatively, pick [RVM](https://rvm.io/).
 * Make sure you have Bundler installed. If not, run ```$ gem install bundler```.
 * Run ```$ bundle install``` to install all dependencies, including Rails 5.1.3. Note: Rails runs in **API mode**, so there are no views.
-* Run ```$ rake db:create db:migrate``` to create the database, run all migrations and seed example data.
-* Optional: to populate the db with example data, run ```$ rake db:seed```.
+* Run ```$ rake db:create db:migrate``` to create the database, run all migrations.
+* _Optional_: to populate the db with example data, run ```$ rake db:seed```.
 * To start Rails, run ```$ rails s```.
 
 ## Testing APIs and API Documentation
-* To run all RSpec tests, enter ```$ rspec```.
 * Run ```$ rake routes``` to see all GET, POST, PUT and DELETE HTTP-routes.
+* _Optional_: To run all RSpec tests, enter ```$ rspec```. This is however not really necessary, as [Travis](https://travis-ci.org/togiberlin/freebowl_api) does this automatically.
 * Install [Postman](https://www.getpostman.com/) to start testing the APIs. Alternatively, you can use [HTTPie](https://httpie.org/) inside the command line.
 * Watch the Postman API documentation here: [https://documenter.getpostman.com/view/2536067/freebowl_api/6n33Et5](https://documenter.getpostman.com/view/2536067/freebowl_api/6n33Et5)
-* You can conveniently import all endpoints from here: [https://www.getpostman.com/collections/7f8c8faab7d5c9c37439](https://www.getpostman.com/collections/7f8c8faab7d5c9c37439). For importing, click on ```File```, ```Import...```, ```Import from link```.
+* You can conveniently import all endpoints from here: [https://www.getpostman.com/collections/ac79b8d279b27bc4f725](https://www.getpostman.com/collections/ac79b8d279b27bc4f725). For importing, click on ```File```, ```Import...```, ```Import from link```.
 * After successful import, make sure to set the ```url``` environment key to value: ```localhost:3000```. You are ready to go!
 
 ## The Bowling Workflow
