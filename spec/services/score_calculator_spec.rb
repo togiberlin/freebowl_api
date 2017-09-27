@@ -86,6 +86,19 @@ RSpec.describe ScoreCalculator do
         expect(described_class.new(frames).strike_score(index)).to eq(30)
       end
     end
+
+    context 'when the 9th frame is a strike' do
+      let(:frames) do
+        [
+          instance_double(Frame, partial_score: 10, strike?: true, last?: false, frame_number: 9),
+          instance_double(Frame, ball_one_pins: 10, ball_two_pins: 10, ball_three_pins: 10, strike?: true, last?: true, frame_number: 10)
+        ]
+      end
+
+      it 'correctly calculates the strike score for the 9th frame' do
+        expect(described_class.new(frames).strike_score(index)).to eq(30)
+      end
+    end
   end
 
   describe '#spare_score' do
