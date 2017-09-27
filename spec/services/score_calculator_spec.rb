@@ -47,7 +47,7 @@ RSpec.describe ScoreCalculator do
       ]
     end
 
-    it 'return the strike score of the frame' do
+    it 'returns the strike score of the frame' do
       expect(described_class.new(frames).strike_score(index)).to eq(15)
     end
 
@@ -59,12 +59,12 @@ RSpec.describe ScoreCalculator do
       end
     end
 
-    context 'when next two frames is a strike and a spare/normal' do
+    context 'when the next two frames are a strike and a spare/normal' do
       let(:frames) do
         [
-          instance_double(Frame, partial_score: 10, last?: false),
-          instance_double(Frame, partial_score: 10, strike?: true),
-          instance_double(Frame, partial_score: 2, ball_one_pins: 2, strike?: false)
+          instance_double(Frame, partial_score: 10, last?: false, frame_number: 1),
+          instance_double(Frame, partial_score: 10, strike?: true, frame_number: 2),
+          instance_double(Frame, partial_score: 2, ball_one_pins: 2, strike?: false, frame_number: 3)
         ]
       end
 
