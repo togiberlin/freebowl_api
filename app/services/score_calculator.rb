@@ -31,8 +31,8 @@ class ScoreCalculator
 
     return frame.partial_score if frame.last? # 10th and last frame: strike + 2 bonus throws = 3 total throws
     return 10 + 10 + 10 if one_frame_ahead.strike? && two_frames_ahead.strike? # Strike + strike + strike
-    return 10 + 10 + two_frames_ahead.ball_one_pins if one_frame_ahead.strike? # Strike + strike + (normal || spare)
-    10 + one_frame_ahead.ball_one_pins + one_frame_ahead.ball_two_pins # (Strike + normal + normal) || (strike + spare)
+    return 10 + 10 + two_frames_ahead.ball_one_pins if one_frame_ahead.strike? && frame.frame_number != 9 # Strike + strike + (normal || spare)
+    10 + one_frame_ahead.ball_one_pins + one_frame_ahead.ball_two_pins # (Strike + normal + normal) || (strike + spare) || (strike + strike + strike @9th frame)
   end
 
   # When the evaluated frame is a spare, the next throw counts as bonus
