@@ -21,6 +21,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'coveralls', require: false
   gem 'sqlite3'
   gem 'pry-rails'
   gem 'pry-byebug'

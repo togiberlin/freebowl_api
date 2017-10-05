@@ -1,4 +1,6 @@
 require 'database_cleaner'
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
 
